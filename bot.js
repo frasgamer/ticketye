@@ -13,7 +13,7 @@ const token = "NTI2NDAxMzQ2MTYxNzM3NzU5.DwEpFw.narsWvvA881pRPdajKSXseHf48s";
 
 client.on("ready", () => {
   console.log("FRASGAMER  | Logged in! Server count: ${client.guilds.size}");
-  client.user.setGame(` has create bot by Fras#9999 |${prefix}new`);
+  client.user.setGame(` -help | -new  |${prefix}new`);
 });
 
 
@@ -26,7 +26,7 @@ client.on("message", (message) => {
     .setColor(0xCF40FA)
     .setDescription(`مرحبا! أنا FRASGAMER ، و Discord commands=بوت لأشياء تذكرة دعم أكثر من رائع وأكثر! وهنا أوامر بلدي:`)
     .addField(`Tickets`, `[${prefix}new]() > Opens up a new ticket and tags the Support Team\n[${prefix}close]() > Closes a ticket that has been resolved or been opened by accident`)
-    .addField(`Other`, `[${prefix}help]() > Shows you this help menu your reading\n[${prefix}ping]() > Pings the bot to see how long it takes to react\n[${prefix}about]() > Tells you all about FRASGAMER`)
+    .addField(`Other`, `[${prefix}help]() > Shows you this help menu your reading\n[${prefix}ping]() > Pings the bot to see how long it takes to react\n[${prefix}about]() > Tells you all about FRAS#9999`)
     message.channel.send({ embed: embed });
   }
 
@@ -58,17 +58,17 @@ if (message.content.toLowerCase().startsWith(prefix + `new`)) {
         message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`);
         const embed = new Discord.RichEmbed()
         .setColor(0xCF40FA)
-        .addField(`Hey ${message.author.username}!`, `Please try explain why you opened this ticket with as much detail as possible. Our **Support Team** will be here soon to help.`)
+        .addField(`Hey ${message.author.username}!`, `يرجى محاولة شرح سبب فتح هذه التذكرة بأكبر قدر ممكن من التفاصيل. سيكون فريق الدعم ** ** هنا قريباً لمساعدتك.`)
         .setTimestamp();
         c.send({ embed: embed });
     }).catch(console.error);
 }
 if (message.content.toLowerCase().startsWith(prefix + `close`)) {
-    if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
+    if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج قناة التذاكر.`);
 
-    message.channel.send(`Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`-confirm\`. This will time out in 10 seconds and be cancelled.`)
+    message.channel.send(`هل أنت واثق؟ بمجرد التأكيد ، لا يمكنك عكس هذا الإجراء!\للتأكيد ، اكتب \`-تاكيد\`. سوف يتم الغاء امر بعد 10 ثواني ان لم تقم بكتابة تاكيد.`)
     .then((m) => {
-      message.channel.awaitMessages(response => response.content === '-confirm', {
+      message.channel.awaitMessages(response => response.content === '-تاكيد', {
         max: 1,
         time: 10000,
         errors: ['time'],
