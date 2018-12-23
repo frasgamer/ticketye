@@ -13,7 +13,7 @@ const token = "NTI2NDAxMzQ2MTYxNzM3NzU5.DwEpFw.narsWvvA881pRPdajKSXseHf48s";
 
 client.on("ready", () => {
   console.log("FRASGAMER  | Logged in! Server count: ${client.guilds.size}");
-  client.user.setGame(` -help | -new  |${prefix}new`);
+  client.user.setGame(` -help | ${prefix}new`);
 });
 
 
